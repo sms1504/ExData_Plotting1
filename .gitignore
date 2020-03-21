@@ -3,6 +3,6 @@
 .RData
 .Ruserdata
 DataSet.zip
-DownloadTime.csv
 ExData_Plotting1.Rproj
 household_power_consumption.txt
+DownloadTime.txt
