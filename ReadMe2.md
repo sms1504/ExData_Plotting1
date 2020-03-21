@@ -10,7 +10,7 @@ source('download.R')
 power.download()
 ```
 
-The script file also includes the `power.tidy()` funtion. This function is used by the plot functions, it tidies the dataset into a form suitable for plotting:
+The script file also includes the `power.tidy()` function. This function is used by the plot functions, it tidies the dataset into a form suitable for plotting:
 
 ### Plotting
 The scripts for generating the plots are contained in separate files as in the course instructions. Each plot has it's own generation function. We can generate the plots as follows:
