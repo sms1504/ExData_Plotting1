@@ -22,7 +22,8 @@ plot3 <- function() {
     legend("topright", 
            legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
            col = c("black", "red", "blue"), 
-           lwd = c(1, 1, 1))
+           lwd = c(1, 1, 1),
+           cex = 0.5)
     
     # Write out the data file
     message("Saving Plot")
