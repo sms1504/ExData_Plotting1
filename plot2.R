@@ -8,7 +8,7 @@ plot2 <- function() {
     source('download.R')
     table <- power.tidy()
     
-    # Create the histogram
+    # Create the plot
     message("Preparing Plot")
     plot(table$DateTime,
          table$Global_active_power,
