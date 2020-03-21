@@ -41,12 +41,9 @@ power.tidy <- function() {
     table <- table[complete.cases(table), ]
     
     # Merge the date and time columns
-    dateTime <- as.POSIXct(paste(table$Date, table$Time))
-    dateTime <- setNames(dateTime, "DateTime")
-    dateTime <- as.POSIXct(dateTime)
-    
-    #table <- table %>% select(-(Date:Time))
     table <- table  %>% mutate(DateTime = as.POSIXct(paste(Date, Time))) %>%
                         select(-(Date:Time))
+    
+    # Return the data
     table
 }
