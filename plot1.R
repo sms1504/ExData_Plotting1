@@ -10,10 +10,12 @@ plot1 <- function() {
     
     # Create the histogram
     message("Preparing Plot")
+    dev.new()
     hist(table$Global_active_power, 
          main = "Global Active Power", 
          xlab = "Global Active Power (kilowatts)", 
-         col = "red")
+         col = "red"
+         )
     
     # Write out the data file
     message("Saving Plot")

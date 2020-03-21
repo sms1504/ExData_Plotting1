@@ -1,5 +1,5 @@
 plot2 <- function() {
-    ## Plot the histogram of the global active power histogram.
+    ## Plot the active power against time.
     
     # Filename
     plotFile    = "plot2.png"
@@ -10,6 +10,7 @@ plot2 <- function() {
     
     # Create the plot
     message("Preparing Plot")
+    dev.new()
     plot(table$DateTime,
          table$Global_active_power,
          xlab = "", 
