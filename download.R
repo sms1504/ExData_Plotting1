@@ -1,3 +1,5 @@
+library(dplyr)
+
 power.download <- function() {
     ## Download and unzip the project data, recording the download time for auditing.
     
@@ -25,16 +27,26 @@ power.tidy <- function() {
     sourceFile <- "household_power_consumption.txt"
     dateFormat <- "%d/%m/%Y"
     
-    message("Reading Full Dataset")
+    message("Reading Dataset")
     table <- read.table(sourceFile, header=TRUE, sep=";", na.strings = "?")
 
-    message("Triming Dataset")
-    # Make sure the date is in the correct format
-    table$Date <- as.Date(table$Date, dateFormat)
-    
     # We're only interested in 2 days of data
-    table <- subset(table ,(Date >= as.Date("1/2/2007", dateFormat))
-                    & (Date <= as.Date("2/2/2007", dateFormat)))
+    message("Triming Dataset")
+    table$Date <- as.Date(table$Date, dateFormat)
+    table      <- subset(table ,(Date >= as.Date("1/2/2007", dateFormat))
+                         & (Date <= as.Date("2/2/2007", dateFormat)))
+
+    message("Tidying Dataset")
+    # Remove NAs
+    table <- table[complete.cases(table), ]
     
+    # Merge the date and time columns
+    dateTime <- as.POSIXct(paste(table$Date, table$Time))
+    dateTime <- setNames(dateTime, "DateTime")
+    dateTime <- as.POSIXct(dateTime)
+    
+    #table <- table %>% select(-(Date:Time))
+    table <- table  %>% mutate(DateTime = as.POSIXct(paste(Date, Time))) %>%
+                        select(-(Date:Time))
     table
 }
