@@ -11,7 +11,7 @@ plot4 <- function() {
     # Create the plot
     message("Preparing Plot")
     dev.new()
-    par(mfrow = c(2,2), mar = c(4,4,2,1), oma = c(0,0,0,0))
+    par(mfrow = c(2,2))
     
     # Global Active Power
     plot(table$DateTime,
@@ -56,6 +56,6 @@ plot4 <- function() {
     
     # Write out the data file
     message("Saving Plot")
-    dev.copy(png, plotFile)
+    dev.copy(png, plotFile, width = 480, height = 480)
     dev.off()
 }

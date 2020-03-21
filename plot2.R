@@ -20,6 +20,6 @@ plot2 <- function() {
 
     # Write out the data file
     message("Saving Plot")
-    dev.copy(png, plotFile)
+    dev.copy(png, plotFile, width = 480, height = 480)
     dev.off()
 }

@@ -23,7 +23,9 @@ power.download <- function() {
 }
 
 power.tidy <- function() {
-
+    ## Tidy the dataset by extracting only the required dates and
+    ## fixing the file date format.
+    
     sourceFile <- "household_power_consumption.txt"
     dateFormat <- "%d/%m/%Y"
     
